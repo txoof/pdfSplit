@@ -65,7 +65,7 @@ for i in "${!pageArray[@]}"
     splitFile="${outDirPath}""${outFileName}"_"${startPage[1]}".pdf
     echo $splitFile
 
-    ./sejda-console-3.2.22/bin/sejda-console extractpages -f "${inputFile}" -s $pages -o "${splitFile}"
+    ./sejda-console/bin/sejda-console extractpages -f "${inputFile}" -s $pages -o "${splitFile}"
 
     #pageList="${pageList}""${startPage}"-"${endPage}",
     
