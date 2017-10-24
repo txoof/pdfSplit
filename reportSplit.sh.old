@@ -1,13 +1,48 @@
 #!/bin/bash
+
+#TO DO:
+#* rewrite the greping to only use bash regexpression
+
+
 # stop execution if any called command exits with non zero
 set -e
 
+
 scriptName="reportSplit"
 tempDataFile="$TMPDIR""${scriptName}.temp"
+pdfGrep=`which pdfgrep`
+
+
+# Regular expression string to search for student information 
+# Group 0 - Student Name; Group 1 - Student Number
+# Expects format: 
+# Student: FirstName SecondName NName LastName StudentID:123456
+
+# Valid Examples:
+# Student: James Earl Jones StudentID:234333
+# Student:Kilgore Trout       StudentID:123466
+# Student: James B.   Hammilton     Student ID: 124566
+# Student: William of Orange      Student      ID: 235365346345
+
+# PCRE friendly RegEx
+#pcreRegEx="Student:\s{0,}(\w+.*)\s+Student\s{0,}ID:\s{0,}(\d+)"
+# Posix RegEx
+bashRegEx="Student:[[:space:]]*([[:alpha:]]*.*)[[:space:]]*Student[[:space:]]*ID:[[:space:]]*([[:digit:]]+)"
+
+# sed replacement expression 
+# search for the following text:
+# (field1)    pageNumber
+# (field2)    : Student: 
+# (filed3)    StudentName
+# (field4)     StudentID: 
+# (field5)    StudentNumber
+# reconstitute as f1: f3 f5
+
 
 # input file path
 inputFile="$1"
 
+# check for an input file as first argument; exit if not supplied
 if [ ! "${inputFile}" ]
   then
     printf "Split a PDF with multiple bookmarks into individual student files\n"
@@ -15,27 +50,33 @@ if [ ! "${inputFile}" ]
     exit 0
 fi
 
+echo "processing $inputFile"
+#pageArray=(`$pdfGrep -i -n ${bashRegEx} RC_Gr\ 1\ Q4\ 2016-2017.pdf | sed -E 's/^([0-9]+)(: {0,}Student: {0,})([A-Za-z-]+ .*[A-Za-z-]+)( {0,}StudentID: {0,})([0-9]+)/\1:\3_\5/'|sed 's/ /_/g' `)
+
+
 inDirPath=$(dirname "${inputFile}")
 inFileName=$(basename "${inputFile}")
 
 outFileName="${inFileName%.*}"
 outDirPath="${inDirPath}"/split_"${outFileName}"/
 
-# search for the page numbers with student id on them
-#pageArray=(`./pdfgrep -i -n -P "Student:\W{0,}\w+.*StudentID:\D{0,}\d+" "${inputFile}" |sed -E 's/([0-9]+)(:.*)/\1/'`)
-
+# check that input file is readable
 if [ ! -r "$inputFile" ]
   then
     printf "[${inputFile}] does not exist or is unreadable\nexiting\n"
     exit 2
 fi
+## add existance, write check here
 
 
 # get a list of page numbers and student information for each record
 # searches for pages that contain the string: 
 # "Studnet: FirstName LastName StudentID:123456"
-pageArray=(`./pdfgrep -i -n -P "Student:\W{0,}\w+.*StudentID:\D{0,}\d+" "${inputFile}" | sed -E 's/^([0-9]+)(: {0,}Student: {0,})([A-Za-z-]+ .*[A-Za-z-]+)( {0,}StudentID: {0,})([0-9]+)/\1:\3_\5/' | sed 's/ /_/g'`) 
+#pageArray=(`./pdfgrep -i -n -P "Student:\W{0,}\w+.*StudentID:\D{0,}\d+" "${inputFile}" | sed -E 's/^([0-9]+)(: {0,}Student: {0,})([A-Za-z-]+ .*[A-Za-z-]+)( {0,}StudentID: {0,})([0-9]+)/\1:\3_\5/' | sed 's/ /_/g'`) 
 
+pageArray=(`$pdfGrep -i -n ${bashRegEx} "${inputFile}" | sed -E 's/^([0-9]+)(: {0,}Student: {0,})([A-Za-z-]+ .*[A-Za-z-]+)( {0,}StudentID: {0,})([0-9]+)/\1:\3_\5/' | sed 's/ /_/g'`) 
+
+# check that valid student pages were extracted
 if [ ${#pageArray[@]} -lt 1 ]
   then
     printf "no student records found in input file\nexiting\n"
@@ -47,27 +88,32 @@ if [ ${#pageArray[@]} -lt 1 ]
     fi
 fi
 
+# recurse the page array, gather list of pages that need to be extracted
 for i in "${!pageArray[@]}"
   do
-    echo "${pageArray[i]}"
     IFS=: 
     read -ra startPage <<< "${pageArray[$i]}"
     read -ra endPage <<< "${pageArray[$i+1]}"
     let endPage=endPage-1
 
-    if [ "${endPage[0]}" -lt 0 ]
+    #guess a significantly large number for the last page
+    if [ "${endPage[0]}" -lt 1 ]
       then
-        let endPage=${startPage[0]}*100
+        let endPage=${startPage[0]}*100000
     fi
     
+    # generate the pages in the appropriate order
     pages="${startPage}"-"${endPage}"
-
+    
+#    pagelist=$pagelist" "$(($startPage-1))
+    
     splitFile="${outDirPath}""${outFileName}"_"${startPage[1]}".pdf
-    echo $splitFile
+
+    # this method takes forever.  Consider using the $pagelist method with 
+    # an additional pdf grep/rename step
+  
+    #./sejda-consoel/bin/sejda-console splitbypages -f ${inputFile} -o "${splitFile}" -n $pagelist
 
     ./sejda-console/bin/sejda-console extractpages -f "${inputFile}" -s $pages -o "${splitFile}"
 
-    #pageList="${pageList}""${startPage}"-"${endPage}",
-    
 done
-
