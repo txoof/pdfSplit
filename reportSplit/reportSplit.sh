@@ -1,5 +1,7 @@
 #!/bin/bash
 
+version="0.2 170102.1005"
+
 # Split large reportcard PDF containing multiple students using
 # pdfgrep (installed via homebrew) and sejda-console (included)
 
@@ -46,6 +48,8 @@ studentRE="Student[[:space:]]{0,}ID:[[:digit:]]+"
 studentDetailsRE="Student:[[:space:]]*([[:alpha:]]+.*[[:alpha:]]+)[[:space:]]*Student[[:space:]]*ID:[[:space:]]*([[:digit:]]+)"
 ###### File Checks
 filesToCheck=($pdfGrep $sejdaCon)
+
+echo "Version: $version"
 
 # check for needed executables
 for i in "${filesToCheck[@]}"
@@ -99,11 +103,11 @@ do
 done
 
 
-if [  -d ${outDir} ] 
+if [  -d "${outDir}" ] 
 then
   :
 else
-  if ! mkdir $outDir 
+  if ! mkdir "${outDir}"
   then
     echo "failed to create $outDir for split files"
     echo "exiting"
@@ -130,7 +134,7 @@ echo "Done extracting"
 
 echo "Renaming extracted files"
 
-for f in ${outDir}/*.pdf
+for f in "${outDir}"/*.pdf
 do
   result=`$pdfGrep -i ${studentDetailsRE} "${f}"`
   if [[ $result =~ $studentDetailsRE ]]
