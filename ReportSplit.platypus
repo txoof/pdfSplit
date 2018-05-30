@@ -9,7 +9,7 @@
 	<key>Authentication</key>
 	<false/>
 	<key>Author</key>
-	<string>aciuffo</string>
+	<string>Aaron Ciuffo</string>
 	<key>BundledFiles</key>
 	<array>
 		<string>/Users/aciuffo/Documents/src/pdfSplit/reportSplit/sejda-console-3.2.29</string>
@@ -29,7 +29,7 @@
 	<key>ExecutablePath</key>
 	<string>/usr/local/share/platypus/ScriptExec</string>
 	<key>IconPath</key>
-	<string>/Users/aciuffo/Library/Application Support/Platypus/PlatypusIcon-79153.icns</string>
+	<string>/Users/aciuffo/Library/Application Support/Platypus/PlatypusIcon-83490.icns</string>
 	<key>Identifier</key>
 	<string>com.txoof.ReportSplit</string>
 	<key>InterfaceType</key>
@@ -255,6 +255,6 @@
 	<key>UseXMLPlistFormat</key>
 	<false/>
 	<key>Version</key>
-	<string>1.0</string>
+	<string>0.2 170102.1005</string>
 </dict>
 </plist>
