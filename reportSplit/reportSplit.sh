@@ -1,6 +1,6 @@
 #!/bin/bash
 
-version="0.2 170102.1005"
+version="0.21 180520.1420"
 
 # Split large reportcard PDF containing multiple students using
 # pdfgrep (installed via homebrew) and sejda-console (included)
@@ -15,7 +15,8 @@ version="0.2 170102.1005"
 pdfGrep=/usr/local/bin/pdfgrep
 
 # location for pdf-sam engine (sejda-console)
-sejdaCon="./sejda-console-3.2.29/bin/sejda-console"
+#sejdaCon="./sejda-console-3.2.29/bin/sejda-console"
+sejdaCon="./sejda-console-3.2.50/bin/sejda-console"
 
 # input pdf
 inputPath="$1"
@@ -118,7 +119,7 @@ fi
 echo "Extracting records into ${outDir}"
 
 # split the files based on the pageList
-$sejdaCon splitbypages -f "${inputPath}" --overwrite --lenient -o "${outDir}" -n $pageList &> /dev/null
+$sejdaCon splitbypages -f "${inputPath}" --overwrite --lenient -o "${outDir}" -n $pageList 
 
 # check the exit status of sejda and bail out if it fails
 if [ ! $? ] 
