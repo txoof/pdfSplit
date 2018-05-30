@@ -6,7 +6,6 @@ Created by Aaron Ciuffo (aaron dot ciuffo)
 Released under GPLv3 
 * Available at https://www.gnu.org/licenses/gpl-3.0.html 
 
-# Project Title
 The reportSplit.sh script takes exactly one argument that is the path to a PDF file and creates a sub directory at the same path in the format:
 /split_[original_filename]/. The script then uses pdfgrep and sejda-console to
 split the original PDF into individual PDFs based on internal text boundaries.
