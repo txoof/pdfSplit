@@ -18,6 +18,7 @@ The script searches and splits orginal PDF for the following string:
 Whitespace inside the above pattern is ignored.
 
 ### Prerequisites
+* Java SE 1.8 - http://www.oracle.com/technetwork/java/javase/downloads/jdk10-downloads-4416644.html
 * Sejda-Console - this is included with the script
 * pdfgrep - provided by homebrew on OS X 
   * In managed, non sudoer environments this can be installed by it support
@@ -32,7 +33,7 @@ brew install pdfgrep
 * Move the ReportSplit application to your Application or Documents folder
 * Double click on the application
   * If your computer gives the message "“ReportSplit.app” is an application downloaded from the Internet. Are you sure you want to open it?" please choose "Open" or contact IT Support
-* Drag a PDF to be split onto the application window. A new folder will appear in the same folder as the PDF with the split PDFs.
+* Drag a the ```test-report.pdf``` onto the application window. A new folder will appear in the reportSplit folder. It should contain three documents
 
 ## Authors
 
