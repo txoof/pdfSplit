@@ -61,7 +61,8 @@ do
     #echo "$i found and is executable"
   else
     echo "$i does not appear to be installed or is not executable"
-    echo "please contact IT Support."
+    echo "please contact IT Support and provide this URL:"
+    echo "https://github.com/txoof/pdfSplit/blob/master/README.md"
     echo "exiting."
   exit 1
   
