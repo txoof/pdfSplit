@@ -28,6 +28,8 @@
 	<true/>
 	<key>ExecutablePath</key>
 	<string>/usr/local/share/platypus/ScriptExec</string>
+	<key>IconPath</key>
+	<string>/Users/aciuffo/Library/Application Support/Platypus/PlatypusIcon-9490.icns</string>
 	<key>Identifier</key>
 	<string>com.txoof.ReportSplit</string>
 	<key>InterfaceType</key>
