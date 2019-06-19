@@ -20,13 +20,19 @@ Whitespace inside the above pattern is ignored.
 ### Prerequisites
 * Java SE 1.8 - http://www.oracle.com/technetwork/java/javase/downloads/jdk10-downloads-4416644.html
 * Sejda-Console - this is included with the script
+* [Homebrew](https://brew.sh/) for installing pdfgrep
+   * Homebrew can be installed using the following procedure by IT support:
+  ```
+  $ login admin
+  $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  ```
 * pdfgrep - provided by homebrew on OS X 
   * In managed, non sudoer environments this can be installed by it support
 ```
 brew install pdfgrep
 ```
 ## Getting Started
-* Download the zip file: [https://github.com/txoof/pdfSplit/raw/master/ReportSplit.tgz]
+* Download the zip file: [https://github.com/txoof/pdfSplit/raw/master/reportSplit.zip]
 
 ### Installing
 * Open the zip file and locate the ReportSplit Application
