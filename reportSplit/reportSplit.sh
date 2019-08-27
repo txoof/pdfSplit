@@ -1,6 +1,6 @@
 #!/bin/bash
 
-version="0.21 180520.1420"
+version="0.3 190827.1053"
 
 # Split large reportcard PDF containing multiple students using
 # pdfgrep (installed via homebrew) and sejda-console (included)
