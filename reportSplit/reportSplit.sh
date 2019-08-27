@@ -36,7 +36,9 @@ outDir="${inputDir}"/split_"${outFileName// /_}"/
 # StudentID: 123456
 # Student ID:123456
 # Student ID: 123456
-studentRE="Student[[:space:]]{0,}ID:[[:digit:]]+"
+# Student ID:  123456
+# -- use with --ignore-case
+studentRE="student[[:space:]]{0,}id:[[:space:]]{0,}[[:digit:]]+"
 
 
 # Posix regular expression for searching individual files for student name
@@ -65,19 +67,19 @@ do
     echo "https://github.com/txoof/pdfSplit/blob/master/README.md"
     echo "exiting."
   exit 1
-  
+
   fi
 done
 
 # check for input file
-if [ ! "${inputPath}" ] 
+if [ ! "${inputPath}" ]
 then
   echo "Please drag and drop a Report Card or Progress Report PDF into this window"
   echo ""
   echo "command line usage: $0 Report_to_split.pdf"
   exit 0
 else
-  if [ ! -r "${inputPath}" ] 
+  if [ ! -r "${inputPath}" ]
   then
     echo "$inputPath is not readable or does not exist."
     echo "exiting."
@@ -90,7 +92,7 @@ echo "Searching ${inputPath} for student records"
 #$pdfGrep -i -n $studentRE "${inputPath}" | sed -E 's/(^[0-9]+)(:.*)/\1/'
 # search for pages containing the string "StudentID: 123456" and push only
 # page number into array
-pageArray=(`$pdfGrep -i -n $studentRE "${inputPath}" | sed -E 's/(^[0-9]+)(:.*)/\1/'`)
+pageArray=(`$pdfGrep --ignore-case -i -n $studentRE "${inputPath}" | sed -E 's/(^[0-9]+)(:.*)/\1/'`)
 
 echo "Found ${#pageArray[@]} student records"
 
