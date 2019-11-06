@@ -1,4 +1,4 @@
-# pdfSplit
+# reportSplit
 split PDFs based on student information contained in PDF
 
 Created by Aaron Ciuffo (aaron dot ciuffo) 
@@ -43,8 +43,11 @@ brew install pdfgrep
 
 ### Normal Use
 * Open the reportSplit.app and drag a PDF containing multiple student records into the window.
-* Look in the same folder as the orginal PDF for a new folder containing individual reports. 
 ![Application Window](./resources/reportSplit.app.png)
+* Look in the same folder as the orginal PDF for a new folder containing individual reports.
+[!Example After Running](./resources/exampleSplit.png)
+
+
 
 ## Authors
 
