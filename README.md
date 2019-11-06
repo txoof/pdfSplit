@@ -35,11 +35,16 @@ brew install pdfgrep
 * Download the zip file: [https://github.com/txoof/pdfSplit/raw/master/reportSplit.zip]
 
 ### Installing
-* Open the zip file and locate the ReportSplit Application
+* Open the zip file and locate the ReportSplit Application (reportSplit.app)
 * Move the ReportSplit application to your Application or Documents folder
 * Double click on the application
   * If your computer gives the message "“ReportSplit.app” is an application downloaded from the Internet. Are you sure you want to open it?" please choose "Open" or contact IT Support
 * Drag a the ```test-report.pdf``` onto the application window. A new folder will appear in the reportSplit folder. It should contain three documents
+
+### Normal Use
+* Open the reportSplit.app and drag a PDF containing multiple student records into the window.
+* Look in the same folder as the orginal PDF for a new folder containing individual reports. 
+![Application Window](./resources/reportSplit.app.png)
 
 ## Authors
 
