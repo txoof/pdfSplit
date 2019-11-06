@@ -45,8 +45,7 @@ brew install pdfgrep
 * Open the reportSplit.app and drag a PDF containing multiple student records into the window.
 ![Application Window](./resources/reportSplit.app.png)
 * Look in the same folder as the orginal PDF for a new folder containing individual reports.
-[!Example After Running](./resources/exampleSplit.png)
-
+![Example After Running](./resources/exampleSplit.png)
 
 
 ## Authors
