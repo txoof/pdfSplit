@@ -39,7 +39,7 @@ brew install pdfgrep
 * Move the ReportSplit application to your Application or Documents folder
 * Double click on the application
   * If your computer gives the message "“ReportSplit.app” is an application downloaded from the Internet. Are you sure you want to open it?" please choose "Open" or contact IT Support
-* Drag a the ```test-report.pdf``` onto the application window. A new folder will appear in the reportSplit folder. It should contain three documents
+* Drag a the `SampleReport.pdf` file located in the `resources` folder onto the application window. A new folder will appear in the `resources` folder. It should contain three sample documents that were split from the original (see image below).
 
 ### Normal Use
 * Open the reportSplit.app and drag a PDF containing multiple student records into the window.
