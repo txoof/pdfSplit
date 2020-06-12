@@ -12,14 +12,14 @@
 	<string>Aaron Ciuffo</string>
 	<key>BundledFiles</key>
 	<array>
-		<string>/Users/aciuffo/Documents/src/pdfSplit/reportSplit/sejda-console-3.2.50</string>
+		<string>/Users/aaronciuffo/Documents/src/pdfSplit/reportSplit/sejda-console-3.2.50</string>
 	</array>
 	<key>Creator</key>
 	<string>Platypus-5.3</string>
 	<key>DeclareService</key>
 	<false/>
 	<key>Destination</key>
-	<string>/Users/aciuffo/Desktop/Application.app</string>
+	<string>/Users/aaronciuffo/Desktop/Application.app</string>
 	<key>DevelopmentVersion</key>
 	<false/>
 	<key>DocIconPath</key>
@@ -29,9 +29,9 @@
 	<key>ExecutablePath</key>
 	<string>/usr/local/share/platypus/ScriptExec</string>
 	<key>IconPath</key>
-	<string>/Users/aciuffo/Library/Application Support/Platypus/PlatypusIcon-9490.icns</string>
+	<string>/Applications/Platypus.app/Contents/Resources/PlatypusDefault.icns</string>
 	<key>Identifier</key>
-	<string>com.txoof.ReportSplit</string>
+	<string>org.aaronciuffo.ReportSplit</string>
 	<key>InterfaceType</key>
 	<string>Text Window</string>
 	<key>InterpreterArgs</key>
@@ -47,7 +47,7 @@
 	<key>Overwrite</key>
 	<false/>
 	<key>PromptForFileOnLaunch</key>
-	<false/>
+	<true/>
 	<key>RemainRunning</key>
 	<true/>
 	<key>RunInBackground</key>
@@ -55,7 +55,7 @@
 	<key>ScriptArgs</key>
 	<array/>
 	<key>ScriptPath</key>
-	<string>/Users/aciuffo/Documents/src/pdfSplit/reportSplit/reportSplit.sh</string>
+	<string>/Users/aaronciuffo/Documents/src/pdfSplit/reportSplit/reportSplit.sh</string>
 	<key>StatusItemDisplayType</key>
 	<string>Text</string>
 	<key>StatusItemIcon</key>
@@ -236,7 +236,9 @@
 	<key>StatusItemUseSystemFont</key>
 	<true/>
 	<key>Suffixes</key>
-	<array/>
+	<array>
+		<string>pdf</string>
+	</array>
 	<key>TextBackground</key>
 	<string>#ffffff</string>
 	<key>TextFont</key>
@@ -251,8 +253,9 @@
 	<array>
 		<string>public.item</string>
 		<string>public.folder</string>
+		<string>com.adobe.pdf</string>
 	</array>
 	<key>Version</key>
-	<string>0.2 170102.1005</string>
+	<string>1.0</string>
 </dict>
 </plist>
