@@ -29,7 +29,7 @@
 	<key>ExecutablePath</key>
 	<string>/usr/local/share/platypus/ScriptExec</string>
 	<key>IconPath</key>
-	<string>/Applications/Platypus.app/Contents/Resources/PlatypusDefault.icns</string>
+	<string>/Users/aaronciuffo/Library/Application Support/Platypus/PlatypusIcon-57972.icns</string>
 	<key>Identifier</key>
 	<string>org.aaronciuffo.ReportSplit</string>
 	<key>InterfaceType</key>
@@ -47,7 +47,7 @@
 	<key>Overwrite</key>
 	<false/>
 	<key>PromptForFileOnLaunch</key>
-	<true/>
+	<false/>
 	<key>RemainRunning</key>
 	<true/>
 	<key>RunInBackground</key>
@@ -256,6 +256,6 @@
 		<string>com.adobe.pdf</string>
 	</array>
 	<key>Version</key>
-	<string>1.0</string>
+	<string>0.2.1</string>
 </dict>
 </plist>
