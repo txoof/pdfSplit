@@ -1,5 +1,6 @@
 # reportSplit **DEPRICATED**
-This version is no longer maintained and has been replaced with [pyPDF_split](https://github.com/txoof/pyPDF_split#pyPDF_split)
+**This version is no longer maintained and has been replaced with [pyPDF_split](https://github.com/txoof/pyPDF_split#pyPDF_split)**
+
 split PDFs based on student information contained in PDF
 
 Created by Aaron Ciuffo (aaron dot ciuffo) 
